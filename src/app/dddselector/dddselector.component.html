@@ -1,0 +1,8 @@
+<mat-dialog-content>
+  <h3 mat-dialog-title>Selecione o DDD</h3>
+  <ul class="codes-table-selection">
+    <li (click)="selectCode(code)" *ngFor="let code of data.phoneCodes">
+      {{ code.ddd }}
+    </li>
+  </ul>
+</mat-dialog-content>

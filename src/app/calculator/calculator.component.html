@@ -1,0 +1,53 @@
+<div id="app-container">
+  <!-- could place logo into a separate component -->
+  <div class="logo-container">
+    <img src="../assets/logo.jpg" class="logo" />
+    <h2 class="logo-title">Fale +</h2>
+  </div>
+
+  <!-- plan selection -->
+  <div id="plan-selection-title">
+    <h1>Comparar Planos</h1>
+  </div>
+  <div id="plan-selection">
+    <div class="plan-input-container">
+      <!-- origem -->
+      <div class="input-box">
+        <label for="origem">Origem</label>
+        <div class="inline-content">
+          <input type="text" [(ngModel)]="origem" name="origem" disabled="true" />
+          <button (click)="openDialog('origem')">+</button>
+        </div>
+      </div>
+      <!-- destino -->
+      <div class="input-box">
+        <label for="destino">Destino</label>
+        <div class="inline-content">
+          <input type="text" [(ngModel)]="destino" name="destino" disabled="true" />
+          <button (click)="openDialog('destino')">+</button>
+        </div>
+      </div>
+      <!-- minutos -->
+      <div class="input-box">
+        <label for="minutos">Minutos</label>
+        <input type="number" [(ngModel)]="minutos" name="minutos" />
+      </div>
+      <div class="input-box simulation-button">
+        <button (click)="buildSimulationOutput()">Calculate</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- calculation output -->
+  <div id="plan-calculation-container" [@simulations]="plans.length">
+    <div class="plan-calculation-output" *ngIf="plans.length > 0">
+      <div class="simulation-output" *ngFor="let simulation of simulations">
+        <div class="simulation-container">
+          <label class="plan-value-detail">{{ simulation.title }}</label>
+          <label class="plan-value-detail">{{ simulation.totalFee !== 0 ? simulation.totalFee : '-'  }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
