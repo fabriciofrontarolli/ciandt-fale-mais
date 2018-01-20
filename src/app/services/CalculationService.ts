@@ -39,8 +39,8 @@ export default class CalculationService {
     if (minutesExceedsTotalPlan) {
       const minutesExceeded = (minutes - planLimit);
       const exceededRate = (pricingRate + (pricingRate / 100 * 10))
-      const exceededFee = (minutesExceeded * exceededRate) ;
-      totalFee = parseFloat(exceededFee).toFixed(2);
+      const exceededFee = (minutesExceeded * exceededRate);
+      totalFee = parseFloat(exceededFee.toFixed(2));
     }
 
     return totalFee;
@@ -61,12 +61,12 @@ export default class CalculationService {
     const pricingRate = Number(pricingForPhoneCall.price);
     const rateWithoutPlan = (pricingRate + (pricingRate / 100 * 10))
     const exceededFee = (minutes * pricingRate);
-    totalFee = parseFloat(exceededFee).toFixed(2);
+    totalFee = parseFloat(exceededFee.toFixed(2));
 
     return totalFee;
   }
 
   areParametersValidForCalculation(origin: string, destiny: string, minutes: number) : boolean {
-    return (origin && destiny && minutes);
+    return Boolean(origin && destiny && minutes);
   }
 }

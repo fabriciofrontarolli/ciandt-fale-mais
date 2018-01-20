@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   templateUrl: './dddselector.component.html',
   styleUrls: ['./dddselector.component.scss']
 })
-export class DddselectorComponent implements OnInit {
+export class DddselectorComponent {
 
   constructor(private matDialogRef: MatDialogRef<DddselectorComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 

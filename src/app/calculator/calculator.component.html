@@ -15,7 +15,7 @@
       <div class="input-box">
         <label for="origem">Origem</label>
         <div class="inline-content">
-          <input type="text" [(ngModel)]="origem" name="origem" disabled="true" />
+          <input type="text" (click)="openDialog('origem')" [(ngModel)]="origem" name="origem" readonly="true" />
           <button (click)="openDialog('origem')">+</button>
         </div>
       </div>
@@ -23,7 +23,7 @@
       <div class="input-box">
         <label for="destino">Destino</label>
         <div class="inline-content">
-          <input type="text" [(ngModel)]="destino" name="destino" disabled="true" />
+          <input type="text" (click)="openDialog('destino')" [(ngModel)]="destino" name="destino" readonly="true" />
           <button (click)="openDialog('destino')">+</button>
         </div>
       </div>
@@ -44,10 +44,21 @@
       <div class="simulation-output" *ngFor="let simulation of simulations">
         <div class="simulation-container">
           <label class="plan-value-detail">{{ simulation.title }}</label>
-          <label class="plan-value-detail">{{ simulation.totalFee !== 0 ? simulation.totalFee : '-'  }}</label>
+          <div class="price-output">
+            <div *ngIf="simulation.totalFee !== 0">
+              <span class="currency" style="font-size: 10px">R$</span>
+              <label class="plan-value-detail" class="price" style="font-size: 30px">{{ getAmount(simulation.totalFee) }}</label>
+              <span class="currency" style="font-size: 10px">{{ getCents(simulation.totalFee) }}</span>
+            </div>
+            <label *ngIf="simulation.totalFee === 0">-</label>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+<footer>
+  <p>CI&T Telecomunicações ₢2018</p>
+</footer>
 
 </div>

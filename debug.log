@@ -1,0 +1,2 @@
+[0120/172537.346:ERROR:exception_handler_server.cc(526)] ConnectNamedPipe: O pipe está sendo fechado. (0xE8)
+[0120/172601.082:ERROR:crash_report_database_win.cc(568)] CreateDirectory C:\Users\Pichau\AppData\Local\Temp\karma-9957012\Crashpad: O sistema não pode encontrar o caminho especificado. (0x3)
